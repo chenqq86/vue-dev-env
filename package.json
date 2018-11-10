@@ -1,5 +1,5 @@
 {
-  "name": "webpack-vue-template",
+  "name": "Webpack-Vue",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "autodll-webpack-plugin": "^0.4.2",
     "autoprefixer": "^9.3.1",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
@@ -24,6 +25,7 @@
     "node-sass": "^4.10.0",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
+    "url-loader": "^1.1.2",
     "vue-loader": "^15.4.2",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.5.17",
@@ -33,6 +35,7 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "ant-design-vue": "^1.1.7",
     "vue": "^2.5.17"
   }
 }

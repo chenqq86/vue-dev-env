@@ -2,19 +2,20 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
+
 module.exports = {
   entry: {
-    bundle: path.resolve(__dirname, './src/index.js')
+    bundle: path.resolve(__dirname, '../src/index.js')
   },
   output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: 'js/[name]-[hash].js'
+    path: path.resolve(__dirname, '../dist'),
+    filename: 'js/[name].[hash].js'
   },
   resolve: {
     extensions: ['*', '.js', '.json', '.vue'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': path.resolve(__dirname, '../src'),
+      '@': path.resolve(__dirname, '../src')
     }
   },
   module: {
@@ -25,7 +26,21 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|svg|jpg|gif|woff|woff2|eot|ttf|otf)$/,
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 500,
+              outputPath: path.resolve(__dirname, '../dist/images'),
+            }
+          },{
+            loader: 'file-loader'
+          }
+        ]
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: [
           'file-loader'
         ]
